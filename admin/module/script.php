@@ -1,4 +1,15 @@
-        <script src="../admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="../admin/vendors/loadingoverlay.min.js"></script>
+<script>
+$.LoadingOverlay("show");
+$( document ).ready(function(){
+
+});
+function load_konten(){
+$.LoadingOverlay("hide");
+}
+</script>        
+	 	
+		<script src="../admin/bootstrap/js/bootstrap.min.js"></script>
         <script src="../admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
         <script src="../admin/assets/scripts.js"></script>
 				<script>
@@ -85,4 +96,6 @@
 								$('#rootwizard').find("a[href*='tab1']").trigger('click');
 							});
 						});
-						</script>
+			</script>
+			
+<script src="../admin/vendors/sweetalert2/dist/sweetalert2.all.min.js"></script>
