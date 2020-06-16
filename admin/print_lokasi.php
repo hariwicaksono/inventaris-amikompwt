@@ -76,7 +76,7 @@ ob_start()?>
     <tbody>
     <?php
       $device_query = mysql_query("select * from stdevice, device_name, device_name_type, device_unit, location_details, stlocation where stdevice.dev_id=device_name.dev_id and stdevice.id=location_details.id and location_details.stdev_id=stlocation.stdev_id and stdevice.type_id=device_name_type.type_id		
-      and stdevice.unit_id=device_unit.unit_id and location_details.stdev_id='$_GET[stdev_id]' order by stdevice.id DESC ")or die(mysql_error());
+      and stdevice.unit_id=device_unit.unit_id and location_details.stdev_id='$_GET[stdev_id]' order by stdevice.dev_code ASC ")or die(mysql_error());
       $i = 0;
       while($row = mysql_fetch_array($device_query)){
       $id = $row['id'];
@@ -85,7 +85,7 @@ ob_start()?>
   ?>
 
   <tr>
-    <td width="40" style='text-align:center;font-family:"Times New Roman","serif"'><?php //echo $i?><?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['dev_code']; ?>.<?php echo $row['year']; ?>.<?php echo $row['inst_id']?>.<?php echo $row['procure_id']; ?></td>
+    <td width="40" style='text-align:center;font-family:"Times New Roman","serif"'><?php //echo $i?><?php echo $row['dev_code']; ?>.<?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['year']; ?>.<?php echo $row['stdev_location_name']; ?>.<?php echo $row['inst_id']?>.<?php echo $row['procure_id']; ?></td>
     <td width="250" style='text-align:center;font-family:"Times New Roman","serif"'>
     <?php echo $row['dev_name']; ?> (<?php echo $row['type_name']; ?>) 
     </td>

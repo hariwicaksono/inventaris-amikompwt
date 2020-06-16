@@ -131,7 +131,7 @@ echo '<i class="icon-remove-sign"></i><div id="hide"><strong>'.$row['dev_status'
 };
 ?>
 </td>
-<td><a href="?module=data_stock_barang&act=lihat_barang&id=<?php echo $id; ?>"><?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['dev_code']; ?>.<?php echo $row['year']; ?>.<?php echo $row['procure_id']; ?></a></td>
+<td><a href="?module=data_stock_barang&act=lihat_barang&id=<?php echo $id; ?>"><?php echo $row['dev_code']; ?>.<?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['year']; ?></a></td>
 <td><?php echo $row['dev_name']; ?></td>
 <td><?php echo $row['dev_brand']; ?></td>
 <td><?php echo $row['dev_model']; ?></td>
@@ -587,15 +587,17 @@ case "import_excel";?>
 		</script>     
 	</div>
 	<div class="block-content collapse in">		
-                
+                <a href="download/format_stdevice.xls" alt="" class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i> Download Format</a>
+				<br/><br/>
 				<form method="post" enctype="multipart/form-data" >
 				
-				 <label>Pilih File</label>
-				 <div class="control-group">
+				 <label><strong>Silahkan Pilih File</strong></label>
+				 	<div class="control-group">
 				  <input name="filemhsw" type="file" required="required">
 				  </div>
+				  <hr/>
 				  <div class="control-group">
-				  <input name="upload" type="submit" class="btn btn-primary" value="Import">
+				  <input name="upload" type="submit" class="btn btn-primary" value="Ya, Import">
 				</div>
 				</form>
 			  
@@ -609,7 +611,8 @@ case "import_excel";?>
 				require('spreadsheet-reader-master/SpreadsheetReader.php');
 			  
 	
-				$target_dir = "/home/www/clients/client1/web1/web/inventory/admin/module/data/uploads/".basename($_FILES['filemhsw']['name']);
+				//$target_dir = "/home/www/clients/client1/web1/web/inventory/admin/module/data/uploads/".basename($_FILES['filemhsw']['name']);
+				$target_dir = "D:/xampp/htdocs/inventaris-amikompwt/admin/module/data/uploads/".basename($_FILES['filemhsw']['name']);
 				
 				move_uploaded_file($_FILES['filemhsw']['tmp_name'],$target_dir);
 			  
@@ -628,7 +631,7 @@ case "import_excel";?>
 				
 				{
 					$uniqid = uniqid(rand());
-
+					$created_at = date("Y-m-d h:i:s");
 					$query = "SELECT max(dev_code) AS last FROM stdevice";
 					$hasil = mysql_query($query);
 					$data  = mysql_fetch_array($hasil);
@@ -637,7 +640,7 @@ case "import_excel";?>
 					$nextNoTransaksi = sprintf('%04s', $nextNoUrut);
 
 				 if ($Key < 2) continue;   
-				 $query=mysql_query("INSERT INTO stdevice(id,dev_id,type_id,dev_code,dev_brand,dev_model,dev_status,dev_desc,jumlah,year,unit_id,inst_id,procure_id,created_at,updated_at) VALUES ('".$uniqid."', '".$Row[0]."', '".$Row[1]."', '".$nextNoTransaksi."','".$Row[2]."','".$Row[3]."','".$Row[4]."','".$Row[5]."','".$Row[6]."','".$Row[7]."','".$Row[8]."','".$Row[9]."','".$Row[10]."','".$Row[11]."','".$Row[12]."')")or die(mysql_error());
+			$query=mysql_query("INSERT INTO stdevice(id,dev_id,type_id,dev_code,dev_brand,dev_model,dev_status,dev_desc,jumlah,year,unit_id,inst_id,procure_id,created_at) VALUES ('".$uniqid."', '".$Row[0]."', '".$Row[1]."', '".$nextNoTransaksi."','".$Row[2]."','".$Row[3]."','".$Row[4]."','".$Row[5]."','".$Row[6]."','".$Row[7]."','".$Row[8]."','".$Row[9]."','".$Row[10]."','".$created_at."')")or die(mysql_error());
 				}
 
 				if ($query) {
@@ -1020,7 +1023,7 @@ echo '<i class="icon-remove-sign"></i><div id="hide"><strong>'.$row['dev_status'
 };
 ?>
 </td>
-<td><a href="?module=data_stock_barang&act=lihat_barang&id=<?php echo $id; ?>"><?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['dev_code']; ?></a></td>
+<td><a href="?module=data_stock_barang&act=lihat_barang&id=<?php echo $id; ?>"><?php echo $row['dev_code']; ?>.<?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?></a></td>
 <td><?php echo $row['dev_name']; ?></td>
 <td><?php echo $row['dev_brand']; ?></td>
 <td><?php echo $row['dev_model']; ?></td>
