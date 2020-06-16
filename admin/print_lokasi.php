@@ -105,7 +105,7 @@ ob_start()?>
     <td width="100" style='text-align:center;font-family:"Times New Roman","serif"'>
     <?php 
     $a = $row['dev_status']; 
-    if($a== "New"){
+    if($a== "New" || $a== "Used"){
       echo "<i class='icon-ok'></i>";
     }
     ?>
@@ -144,11 +144,11 @@ ob_start()?>
   <span style='font-size:12.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>
   Mengetahui<br/>
   Kepala Bagian Aset dan Kerumahtanggaan<br/>
+  
+  <img width="200" style="margin-top:10px;margin-bottom:10px" alt="Tanda Tangan Pak Bugi" src="images/ttd_pak_bugi.png">
   <br/>
-  <br/>
-  <br/>
-  <br/>
-  Bugi Nugroho, S.Kom
+  Bugi Nugroho, S.Kom<br/>
+  NIK. 2012.09.1.015 
   </span>
   </p>
   </div>
