@@ -85,7 +85,7 @@ ob_start()?>
   ?>
 
   <tr>
-    <td width="40" style='text-align:center;font-family:"Times New Roman","serif"'><?php //echo $i?><?php echo $row['dev_code']; ?>.<?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['year']; ?>.<?php echo $row['stdev_location_name']; ?>.<?php echo $row['inst_id']?>.<?php echo $row['procure_id']; ?></td>
+    <td width="40" style='text-align:center;font-family:"Times New Roman","serif"'><?php //echo $i?><?php echo $row['dev_code']; ?>.<?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['year']; ?>.<?php echo $row['stdev_location_code']; ?>.<?php echo $row['inst_id']?>.<?php echo $row['procure_id']; ?></td>
     <td width="250" style='text-align:center;font-family:"Times New Roman","serif"'>
     <?php echo $row['dev_name']; ?> (<?php echo $row['type_name']; ?>) 
     </td>
@@ -145,7 +145,7 @@ ob_start()?>
   Mengetahui<br/>
   Kepala Bagian Aset dan Kerumahtanggaan<br/>
   
-  <img width="200" style="margin-top:10px;margin-bottom:10px" alt="Tanda Tangan Pak Bugi" src="images/ttd_pak_bugi.png">
+  <img width="250" style="margin-left:-20px;margin-top:0;margin-bottom:0;z-index:999 !important" alt="Tanda Tangan Pak Bugi" src="images/ttd_pak_bugi.png">
   <br/>
   Bugi Nugroho, S.Kom<br/>
   NIK. 2012.09.1.015 

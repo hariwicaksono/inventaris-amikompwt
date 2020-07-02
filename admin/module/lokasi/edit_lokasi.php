@@ -18,6 +18,13 @@ $row = mysql_fetch_array($query);
 <div class="block-content collapse in">
 <div class="span12">
 <form method="post">
+
+        <div class="control-group">
+            <div class="controls">
+            <input name="stdev_location_code" value="<?php echo $row['stdev_location_code']; ?>" class="input focused" id="focusedInput" type="text" placeholder="<?php echo $lang['admin']['location_code']?>" required>
+            </div>
+        </div>
+
         <div class="control-group">
             <div class="controls">
             <input name="stdev_location_name" value="<?php echo $row['stdev_location_name']; ?>" class="input focused" id="focusedInput" type="text" placeholder="<?php echo $lang['admin']['location_name']?>" required>
@@ -59,9 +66,10 @@ $row = mysql_fetch_array($query);
 <!-- /block -->
 </div><?php
 if (isset($_POST['update'])){
+$stdev_location_code = $_POST['stdev_location_code'];
 $stdev_location_name = $_POST['stdev_location_name'];
 $stdev_location_floor = $_POST['stdev_location_floor'];
-mysql_query("update stlocation set stdev_location_name = '$stdev_location_name',stdev_location_floor = '$stdev_location_floor' where stdev_id = '$get_id' ")or die(mysql_error());
+mysql_query("update stlocation set stdev_location_code = '$stdev_location_code',stdev_location_name = '$stdev_location_name',stdev_location_floor = '$stdev_location_floor' where stdev_id = '$get_id' ")or die(mysql_error());
 
 mysql_query("insert into activity_log (date,username,action) values(NOW(),'$admin_username','Edit location $stdev_location_name')")or die(mysql_error());
 ?>

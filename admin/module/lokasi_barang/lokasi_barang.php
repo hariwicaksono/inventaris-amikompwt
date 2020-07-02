@@ -208,7 +208,7 @@ echo '<i class="icon-remove-sign"></i><div id="hide"><strong>'.$row['dev_status'
 };
 ?>
 </td>
-<td><?php echo $row['dev_code']; ?>.<?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['year']; ?>.<?php echo $location_row['stdev_location_name']; ?>.<?php echo $row['inst_id']?>.<?php echo $row['procure_id']; ?></td>
+<td><?php echo $row['dev_code']; ?>.<?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['year']; ?>.<?php echo $location_row['stdev_location_code']; ?>.<?php echo $row['inst_id']?>.<?php echo $row['procure_id']; ?></td>
 <td><?php echo $row['dev_brand']; ?></td>
 <td><?php echo $row['dev_model']; ?></td>
 <td><?php echo $row['jumlah']?></td>
@@ -383,7 +383,7 @@ else
 echo '<i class="icon-remove-sign"></i><div id="hide"><strong>'.$row['dev_status'].'</strong></div>';
 };
 ?>
-<td><?php echo $row['dev_code']; ?>.<?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['year']; ?>.<?php echo $location_row['stdev_location_name']; ?>.<?php echo $row['inst_id']?>.<?php echo $row['procure_id']; ?></td>
+<td><?php echo $row['dev_code']; ?>.<?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['year']; ?>.<?php echo $location_row['stdev_location_code']; ?>.<?php echo $row['inst_id']?>.<?php echo $row['procure_id']; ?></td>
 <td><?php echo $row['dev_brand']; ?></td>
 <td><?php echo $row['dev_model']; ?></td>
 <!--<td><?php //echo $location_row['stdev_location_name']; ?></td>-->

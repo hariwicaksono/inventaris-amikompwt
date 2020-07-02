@@ -103,6 +103,7 @@
   $lang['admin']['date']   =  'Date';
   $lang['admin']['add_location']   =  'Add Location';
   $lang['admin']['click_add_location']   =  'Click to Add Location';
+  $lang['admin']['location_code']   =  'Location Code';
   $lang['admin']['location_name']   =  'Location Name';
   $lang['admin']['location_floor']   =  'Floor';
   $lang['admin']['ammount_dev_moving']   =  'Number of items moved';

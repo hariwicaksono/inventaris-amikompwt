@@ -7,7 +7,14 @@
 <div class="block-content collapse in">
     <div class="span12">
 <form method="post">
-        <div class="control-group">
+
+          <div class="control-group">
+              <div class="controls">
+                <input name="stdev_location_code" class="input focused" id="focusedInput" type="text" placeholder = "<?php echo $lang['admin']['location_code']?>" required>
+              </div>
+            </div>
+            
+           <div class="control-group">
               <div class="controls">
                 <input name="stdev_location_name" class="input focused" id="focusedInput" type="text" placeholder = "<?php echo $lang['admin']['location_name']?>" required>
               </div>
@@ -18,7 +25,7 @@
                <!-- <input name="stdev_location_floor" class="input focused" id="focusedInput" type="text" placeholder = "<?php //echo $lang['admin']['location_floor']?>" required>-->
 
                 <select id="focusedInput" class="input focused" name="stdev_location_floor" required>
-					<option value="">Pilih Kategori</option>
+					<option value="">Pilih Lantai</option>
 				
 					<option value="I">I</option>
           <option value="II">II</option>
@@ -54,11 +61,12 @@
 <!-- /block -->
 </div><?php
 if (isset($_POST['save'])){
+  $stdev_location_code = $_POST['stdev_location_code'];
 $stdev_location_name = $_POST['stdev_location_name'];
 $stdev_location_floor = $_POST['stdev_location_floor'];
 $thumbnails = $_POST['thumbnails'];
 
-$query = mysql_query("select * from stlocation where stdev_location_name  =  '$stdev_location_name' ")or die(mysql_error());
+$query = mysql_query("select * from stlocation where stdev_location_code = '$stdev_location_code', stdev_location_name  =  '$stdev_location_name' ")or die(mysql_error());
 $count = mysql_num_rows($query);
 
 if ($count > 0){ ?>

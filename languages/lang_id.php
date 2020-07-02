@@ -101,6 +101,7 @@
   $lang['admin']['date']   =  'Tanggal';
   $lang['admin']['add_location'] = 'Tambah Lokasi';
   $lang['admin']['click_add_location'] = 'Klik untuk Tambah Lokasi';
+  $lang['admin']['location_code']   =  'Kode Lokasi';
   $lang['admin']['location_name']   =  'Nama Lokasi';
   $lang['admin']['location_floor']   =  'Lantai';
   $lang['admin']['ammount_dev_moving']   =  'Jumlah Yang dipindah';

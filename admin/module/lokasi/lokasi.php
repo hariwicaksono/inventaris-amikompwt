@@ -38,6 +38,7 @@ $count_my_location = mysql_num_rows($my_location);?>
 	<thead>
 		<tr>
 				<th></th>
+				<th></th>
 				<th><?php echo $lang['admin']['location_name']?></th>
 				<th><?php echo $lang['admin']['location_floor']?></th>
 				<th></th>
@@ -54,6 +55,7 @@ $count_my_location = mysql_num_rows($my_location);?>
 		<td width="30">
 		<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 		</td>
+		<td><?php echo $location_row['stdev_location_code']; ?></td>
 		<td><?php echo $location_row['stdev_location_name']; ?></td>
 		<td><?php echo $location_row['stdev_location_floor']; ?></td>
 		<?php include('toolttip_edit_delete.php'); ?>																											
