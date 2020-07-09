@@ -557,9 +557,9 @@ case "transfer";?>
 	<!-- block -->
 	<div id="block_bg" class="block">
 		<div class="navbar navbar-inner block-header">
-			<div class="pull-left"><strong>From:&nbsp;<?php echo $location_row['stdev_location_name']; ?> Transfer Device</strong></div>
+			<div class="pull-left"><strong>Dari:&nbsp;<?php echo $location_row['stdev_location_name']; ?> Transfer Barang</strong></div>
 			<div class="pull-right">
-			<a id="return" data-placement="left" title="Click to Return" href="?module=lokasi_barang&act=list&stdev_id=<?php echo $stdev_id ?>"><i class="icon-arrow-left"></i> Back</a>
+			<a id="return" data-placement="left" title="Click to Return" href="?module=lokasi_barang&act=list&stdev_id=<?php echo $stdev_id ?>"><i class="icon-arrow-left"></i> Kembali</a>
 			</div>
 			<script type="text/javascript">
 			$(document).ready(function(){
@@ -570,9 +570,7 @@ case "transfer";?>
 		</div>
 												
 		<div class="block-content collapse in">    
-		<div class="alert alert-warning">
-	<strong>they will redirect move to the location you select</strong>
-</div>
+
 		<?php
 		$query = mysql_query("select * from stdevice 
 		LEFT JOIN device_name ON stdevice.dev_id=device_name.dev_id
@@ -586,23 +584,36 @@ case "transfer";?>
 		?>
 		
 			<form class="form-horizontal" method="post">
-			
+			<input type="hidden" name="dev_id" value="<?php echo $row['dev_id']?>">
+			<legend><?php echo $row['dev_name'];?> <?php echo $row['dev_brand'];?> <?php echo $row['dev_model'];?></legend>
 			<div class="control-group">
-				<label class="control-label" for="inputEmail">Device Name</label>
+				<label class="control-label" for="inputEmail"><?php echo $lang['admin']['input_amount'];?></label>
 				<div class="controls">
-				<input type="hidden" name="dev_id" value="<?php echo $row['dev_id']?>">
-				<input type="text" value="<?php echo $row['dev_name'];?>" readonly>
+				
 				<input type="text" name="jum" value="<?php echo $tampil['jumlah']; ?>">	
 				
 				</div>
 			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="inputEmail"><?php echo $lang['admin']['location'];?></label>
+				<div class="controls">
+
+				<select name="stdev_id">
+					<option>Pilih Lokasi</option>
+						<?php $result =  mysql_query("select * from stlocation")or die(mysql_error()); 
+						while ($row=mysql_fetch_array($result)){ ?>
+					<option value="<?php echo $row['stdev_id']; ?>"><?php echo $row['stdev_location_name']; ?></option>
+					<?php } ?>
+				</select>
+				
+				</div>
+			</div>
 					
-			
-	
 			<div class="control-group">
 			<div class="controls">
 			
-			<button id="move" data-placement="right" title="Click to Move Device" name="transfer" type="submit" class="btn btn-primary"><i class="icon-move"></i> Move</button>
+			<button id="move" data-placement="right" title="Klik untuk Pindah Barang" name="transfer" type="submit" class="btn btn-primary"><i class="icon-move"></i> Transfer</button>
 			</div>
 			</div>
 			<script type="text/javascript">
@@ -614,8 +625,9 @@ case "transfer";?>
 			</form>
 			
 			<?php
-			$data1=mysql_query("select* from location_details where ld_id='$tampil[ld_id]'");
-			if ($_POST['jum']>$tampil['jumlah']){
+			$data1=mysql_query("select* from location_details where ld_id='$ld_id'");
+			$jumlah = $_POST['jum'];
+			if ($jumlah>$data1['jumlah']){
 				?>
 				<script>
 				$().ready(function() {	
@@ -637,24 +649,22 @@ case "transfer";?>
 			$jum2=$qq['jumlah'];
 			$data=$_POST['jum'];
 			$hasil=$jum2+$data;
-
-			$del=mysql_query("delete from location_details where id='$get_id' and stdev_id='$stdev_id' ");
 			$update=mysql_query("update stdevice set jumlah='$hasil' where id='$get_id'");	
 
+			//$del=mysql_query("delete from location_details where id='$get_id' and stdev_id='$stdev_id' ");
 			?>
 			
 			<script>
-
-$('#move').ready(function() {	
-    Swal.fire({
-        title: "<?php echo $lang['swal']['success']?>",
-        text: "Barang berhasil dipindahkan ke Data Stok Barang",
-        icon: "success",
-        showConfirmButton: false
-    });
-    setTimeout(function(){ window.location = '?module=lokasi_barang&act=list&stdev_id=<?php echo $stdev_id?>'  }, 2000);
-    }); 
-</script>
+			$('#move').ready(function() {	
+				Swal.fire({
+					title: "<?php echo $lang['swal']['success']?>",
+					text: "Barang berhasil dipindahkan ke Data Stok Barang",
+					icon: "success",
+					showConfirmButton: false
+				});
+				setTimeout(function(){ window.location = '?module=lokasi_barang&act=list&stdev_id=<?php echo $stdev_id?>'  }, 2000);
+				}); 
+			</script>
 			<?php
 			}
 			}

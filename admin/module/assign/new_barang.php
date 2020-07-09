@@ -139,7 +139,7 @@ echo "";
 <td width="30" class="empty">
 <input id="" name="selector[]" type="checkbox" value="<?php echo $id; ?>" >
 </td>
-<td><a href="?module=data_stock_barang&act=lihat_barang&id=<?php echo $id; ?>"><?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['dev_code']; ?>.<?php echo $row['year']; ?>.<?php echo $row['inst_id']?>.<?php echo $row['procure_id']; ?></a></td>
+<td><a href="?module=data_stock_barang&act=lihat_barang&id=<?php echo $id; ?>"><?php echo $row['dev_code']; ?>.<?php echo $row['dev_id']; ?>.<?php echo $row['type_number']; ?>.<?php echo $row['year']; ?></a></td>
 <td><?php echo $row['dev_name']; ?></td>
 <td><?php echo $row['dev_brand']; ?></td>
 <td><?php echo $row['dev_model']; ?></td>
