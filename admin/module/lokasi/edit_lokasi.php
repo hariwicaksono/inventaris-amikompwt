@@ -69,7 +69,7 @@ if (isset($_POST['update'])){
 $stdev_location_code = $_POST['stdev_location_code'];
 $stdev_location_name = $_POST['stdev_location_name'];
 $stdev_location_floor = $_POST['stdev_location_floor'];
-mysql_query("update stlocation set stdev_location_code = '$stdev_location_code',stdev_location_name = '$stdev_location_name',stdev_location_floor = '$stdev_location_floor' where stdev_id = '$get_id' ")or die(mysql_error());
+mysql_query("update stlocation set stdev_location_code = '$stdev_location_code', stdev_location_name = '$stdev_location_name', stdev_location_floor = '$stdev_location_floor' where stdev_id = '$get_id' ")or die(mysql_error());
 
 mysql_query("insert into activity_log (date,username,action) values(NOW(),'$admin_username','Edit location $stdev_location_name')")or die(mysql_error());
 ?>

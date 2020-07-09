@@ -61,12 +61,12 @@
 <!-- /block -->
 </div><?php
 if (isset($_POST['save'])){
-  $stdev_location_code = $_POST['stdev_location_code'];
+$stdev_location_code = $_POST['stdev_location_code'];
 $stdev_location_name = $_POST['stdev_location_name'];
 $stdev_location_floor = $_POST['stdev_location_floor'];
 $thumbnails = $_POST['thumbnails'];
 
-$query = mysql_query("select * from stlocation where stdev_location_code = '$stdev_location_code', stdev_location_name  =  '$stdev_location_name' ")or die(mysql_error());
+$query = mysql_query("select * from stlocation where stdev_location_code = '$stdev_location_code' and stdev_location_name  =  '$stdev_location_name' and stdev_location_floor = '$stdev_location_floor' ")or die(mysql_error());
 $count = mysql_num_rows($query);
 
 if ($count > 0){ ?>
@@ -82,7 +82,7 @@ $().ready(function() {
 </script>
 <?php
 }else{
-mysql_query("insert into stlocation (stdev_location_name,stdev_location_floor,thumbnails) values('$stdev_location_name','$stdev_location_floor','images/thumbnails.jpg')")or die(mysql_error());
+mysql_query("insert into stlocation (stdev_location_code,stdev_location_name,stdev_location_floor,thumbnails) values('$stdev_location_code','$stdev_location_name','$stdev_location_floor','images/thumbnails.jpg')")or die(mysql_error());
 
 mysql_query("insert into activity_log (date,username,action) values(NOW(),'$admin_username','Add location $stdev_location_name')")or die(mysql_error());
 ?>
