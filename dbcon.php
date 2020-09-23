@@ -4,7 +4,7 @@ function dbcon(){
 	$user = "root";
 	$pass = "";
 	$host = "localhost";
-	$db = "thesis";
+	$db = "c1thesis";
 	mysql_connect($host,$user,$pass);
 	mysql_select_db($db);
 }

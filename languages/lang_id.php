@@ -1,10 +1,11 @@
 <?php    
   $lang['please_login']   = 'Silakan Masuk';
   $lang['signin']  = 'Masuk';
-  $lang['welcome']   = 'Selamat Datang Di';
+  $lang['welcome_to']   = 'Selamat Datang Di';
   $lang['click_to_sign']      = 'Klik disini untuk masuk'; 
   $lang['username']   = 'Nama pengguna'; 
   $lang['password']   = 'Kata sandi';  
+  $lang['jgrowl']['access_granted'] = 'Access Granted';
   $lang['jgrowl']['check_user']   = 'Silakan periksa nama pengguna dan kata sandi Anda';  
   $lang['jgrowl']['login_fail']   = 'Login Gagal'; 
   $lang['jgrowl']['loading']   = 'Sedang Memuat, Silakan Tunggu';
